@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import fetchData from '../api';
 
-function Login() {
+function Register() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = async () => {
+  const handleRegister = async () => {
     try {
-      // Call the login API endpoint using fetchData
-      const response = await fetchData('/api/login', 'POST', { username, password });
+      // Call the registration API endpoint using fetchData
+      const response = await fetchData('/api/register', 'POST', { username, password });
       console.log(response);
       // Redirect to the Profile page or display a success message
     } catch (error) {
@@ -19,12 +19,12 @@ function Login() {
 
   return (
     <div>
-      <h1>Login</h1>
+      <h1>Register</h1>
       <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button onClick={handleLogin}>Login</button>
+      <button onClick={handleRegister}>Register</button>
     </div>
   );
 }
 
-export default Login;
+export default Register;
